@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #content {
+                display: inline-block;
+                width: 70%;
+                background-color: pink;
+            }
+
+            
+        </style>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="active"><a href="#">Home</a></li>
+          <li role="presentation"><a href="#">Profile</a></li>
+          <li role="presentation"><a href="#">Messages</a></li>
+        <span id="logout-section">
+          {% if session.get('username') %}
+            <button id="logout">Logout</button>
+          {% endif %}
+      </span>
+        </ul>
+        
+            <div class="container-fluid">
+                <div id="alert-section">
+                    <!-- bootstrap alerts -->
+                </div>
+                <div class="row">
+                <div class="col-md-8">
+                    <h1> Your Profile </h1>
+
+                    <p> Things </p>
+                    <form>
+                        <label>About Me</label>
+                        <textarea rows="6" id="about-me"></textarea>
+                    </form>
+
+                </div>
+                <div class="col-md-4">
+                    <div id="loginform">
+                        {% if session.get('username') %}
+                            <div><img src="https://unsplash.it/400/400"></div>
+                        {% else %}
+                            <form id="myform">
+                                <label>Username<input id="cher" name="username" type="text"></label>
+                                <label>Password<input id="red" name="password" type="password"></label>
+                                <input id="submit-btn" type="submit" value="LETS DO AJAX!">
+                            </form>
+                        {% endif %}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    
+            
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+        <script src="/static/js/ajaxPractice.js"></script>
+    </body>
+</html>
